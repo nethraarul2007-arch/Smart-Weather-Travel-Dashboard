@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search any city for live weather, a 7-day forecast and weather-based travel suggestions.">
+  <title>Smart Weather & Travel Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&family=Sora:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="cloudy">
+  <a class="skip" href="#dashboard">Skip to weather</a>
+  <div class="page">
+    <header class="top">
+      <h1>Weather &amp; Travel</h1>
+      <div class="unit" role="group" aria-label="Temperature unit">
+        <button type="button" data-unit="c" aria-pressed="true">°C</button>
+        <button type="button" data-unit="f" aria-pressed="false">°F</button>
+      </div>
+    </header>
+
+    <section class="search-area" aria-label="City search">
+      <form id="search-form" class="search" role="search" autocomplete="off">
+        <label class="sr-only" for="city">Search for a city</label>
+        <div class="combo">
+          <input id="city" type="text" placeholder="Search for a city, for example Chennai" role="combobox"
+                 aria-expanded="false" aria-controls="suggestions" aria-autocomplete="list" spellcheck="false">
+          <ul id="suggestions" role="listbox" aria-label="City suggestions" class="suggestions hidden"></ul>
+        </div>
+        <button class="btn" type="submit">Search</button>
+        <button class="btn btn--ghost" type="button" id="locate">Use my location</button>
+      </form>
+      <div class="chips" id="recents" aria-label="Recent searches"></div>
+    </section>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <section id="welcome" class="welcome">
+      <h2>Where are you headed?</h2>
+      <p>Search a city to see live conditions, the next 7 days, and ideas for what to do and pack.</p>
+      <div class="chips" id="quick-picks"></div>
+    </section>
+
+    <main id="dashboard" class="dashboard hidden" tabindex="-1">
+      <section id="current" class="panel current" aria-label="Current weather"></section>
+      <section id="travel" class="panel travel" aria-label="Travel suggestions"></section>
+      <section class="panel wide" aria-labelledby="hourly-title">
+        <h2 id="hourly-title">Next 24 hours</h2>
+        <div id="hourly" class="hourly"></div>
+      </section>
+      <section class="panel wide" aria-labelledby="forecast-title">
+        <h2 id="forecast-title">7-day forecast</h2>
+        <p class="hint" id="best-day"></p>
+        <div id="forecast" class="forecast"></div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo.com</a> (CC BY 4.0).
+      Travel suggestions are general guidance based on the forecast. Check local advisories before you travel.
+    </footer>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

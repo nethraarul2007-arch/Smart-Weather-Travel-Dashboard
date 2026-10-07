@@ -1,0 +1,11 @@
+{
+  "name": "smart-weather-travel-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Live weather, 7-day forecast and weather-based travel suggestions.",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "node --test"
+  }
+}
